@@ -43,6 +43,7 @@ jobs:
 
       - name: Build VitePress
         env:
+          NODE_OPTIONS: "--max-old-space-size=8192" # 增加堆内存到 8GB（解决 OOM 崩溃）
           VITE_GISCUS_REPO_ID: ${{ secrets.VITE_GISCUS_REPO_ID }}
           VITE_GISCUS_CATEGORY_ID: ${{ secrets.VITE_GISCUS_CATEGORY_ID }}
           VITE_GISCUS_ENABLED: ${{ vars.VITE_GISCUS_ENABLED }}
